@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "learn-app"
+    }
+  },
+  "defaultProject": "learn-app",
+  "cli": {
+    "analytics": false
+  }
 }

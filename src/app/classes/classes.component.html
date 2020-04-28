@@ -1,0 +1,24 @@
+<div class="alert alert-dark mt-3" style="text-align: center;">Reactive Forms</div>
+<form [formGroup]="form" (ngSubmit)="login()">
+    <div *ngIf="form.errors" class="alert alert-danger">
+        The username or password is invalid.
+    </div>
+    <div class="form-group">
+        <label for="uname">Username</label>
+        <input formControlName="username" type="text" class="form-control" id="uname">
+        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+            <div *ngIf="username.errors.required"> Username is required </div>
+            <div *ngIf="username.errors.minlength"> Username should be minimum {{username.errors.minlength.requiredlength}} . </div>
+            <div *ngIf="username.errors.pattern"> username should match the pattern required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="password">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.errors.minlength">Password must contain minimum {{password.errors.minlength.requiredlength}} letters.</div>
+            <div *ngIf="password.errors.invalid">Password is required.</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
