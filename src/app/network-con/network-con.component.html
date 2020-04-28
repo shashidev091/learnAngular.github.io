@@ -5,3 +5,14 @@
 </div> -->
 
 <input type="text" (keyup.enter)="createPost(title)" #title class="list-group">
+
+<div *ngIf="objectsOf">
+    <div *ngFor="let objects of objectsOf">
+        <div *ngIf="objects.id < 10">
+            <h3 style="background-color: aqua;">{{objects.title}}</h3>
+            <p>{{objects.body}}</p>
+        </div>
+    </div>
+</div>
+
+<button (click)="getPostTwo()">second</button>
