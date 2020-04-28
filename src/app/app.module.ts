@@ -11,6 +11,7 @@ import { PannelComponent } from './pannel/pannel.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NetworkConComponent } from '././network-con/network-con.component'
 import { HttpClientModule } from '@angular/common/http';
+import { SecondNetworkComponent } from './network-con/second-netwok.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     ClassesComponent,
     PannelComponent,
     ContactFormComponent,
-    NetworkConComponent
+    NetworkConComponent,
+    SecondNetworkComponent
   ],
   imports: [
     BrowserModule,

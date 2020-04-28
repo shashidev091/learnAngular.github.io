@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
 
-interface posts{
+export interface posts{
   body: string,
   title: string,
   id: number,
@@ -22,7 +22,11 @@ export class NetworkConComponent implements OnInit {
 
   objectsOf: [posts] = [{body:'', title: '', id : 0 , userId: 0}];
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) { 
+    // http.get(this.ROOT_URL).subscribe(response => {
+    //   console.log(response)
+    // })
+  }
 
   public print() {
     console.log(this.postElements)
@@ -69,7 +73,22 @@ export class NetworkConComponent implements OnInit {
       })
   }
 
+  public getPostTwo() {
+    this.http.get(this.ROOT_URL)
+      .subscribe(response => {
+        let a:any = response;
+        a.forEach(aa => {
+          if(aa.id < 10) {
+            console.log(aa.body);
+          }
+        })
+      })
+  }
+
   ngOnInit(): void {
+    this.http.get(this.ROOT_URL).subscribe(response => {
+      console.log(response[12].body)
+    })
   }
 
 }
